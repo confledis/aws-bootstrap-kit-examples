@@ -66,10 +66,10 @@ export class AWSBootstrapKitLandingZonePipelineStack extends Stack {
       sourceAction: new codepipeline_actions.GitHubSourceAction({
         actionName: 'GitHub',
         output: sourceArtifact,
-        branch:  this.node.tryGetContext('github_repo_branch'),
-        oauthToken: core.SecretValue.secretsManager('GITHUB_TOKEN'),
-        owner: this.node.tryGetContext('github_alias'),
-        repo: this.node.tryGetContext('github_repo_name'),
+        branch:  this.node.tryGetContext('main'),
+        oauthToken: core.SecretValue.secretsManager('8a89bc702b32f6b1b86ec511599be70cf52acd14'),
+        owner: this.node.tryGetContext('cfd-administrator-aws'),
+        repo: this.node.tryGetContext('aws-bootstrap-kit-examples'),
       }),
 
       synthAction: SimpleSynthAction.standardNpmSynth({
