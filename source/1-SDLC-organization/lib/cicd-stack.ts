@@ -67,7 +67,8 @@ export class AWSBootstrapKitLandingZonePipelineStack extends Stack {
         actionName: 'GitHub',
         output: sourceArtifact,
         branch:  this.node.tryGetContext('github_repo_branch'),
-        // GITHUB_TOKEN_2 will be change to GITHUB_TOKEN
+        // GITHUB_TOKEN_2 will be change To GITHUB_TOKEN
+        // Note Don't push the code before 7 days the time for AWS to delete the secret
         oauthToken: core.SecretValue.secretsManager('GITHUB_TOKEN_2'),
         owner: this.node.tryGetContext('github_alias'),
         repo: this.node.tryGetContext('github_repo_name'),
